@@ -8,7 +8,7 @@ const rmqUsername = core.getInput("rmqUsername");
 const rmqHost = core.getInput("rmqHost");
 const rmqVirtualHost = core.getInput("rmqVirtualHost");
 const rmqExchange = core.getInput("rmqExchange");
-const rmqRoutingKey = core.getInput("routingKey");
+const rmqRoutingKey = core.getInput("rmqRoutingKey");
 const message = core.getInput("message");
 
 async function run() {
@@ -17,7 +17,6 @@ async function run() {
       var amqpClient = new amqp.AMQPClient(url);
       const conn = await amqpClient.connect();
       const ch = await conn.channel();
-      console.log("got channel");
       await ch.basicPublish(rmqExchange, rmqRoutingKey, Buffer.from(message));
       await ch.close();
       await conn.close();
