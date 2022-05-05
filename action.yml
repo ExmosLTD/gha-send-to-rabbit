@@ -1,0 +1,27 @@
+name: 'GHA Rabbit MQ Sender'
+description: 'Sends a message to rabbitmq'
+inputs:
+  rmqUsername:
+    description: 'Rmq Username'
+    required: true
+  rmqPassword:
+    description: 'Rmq Password'
+    required: true
+  rmqHost:
+    description: 'Rmq Host'
+    required: true
+  rmqVirtualHost:
+    description: 'Rmq Virtual Host'
+    required: true
+  rmqExchange:
+    description: 'Rmq Exchange'
+    required: true
+  message:
+    description: 'The message to send to rabbit'
+    required: true
+  rmqRoutingKey:
+    description: 'The Routing Key to use when sending to RMQ'
+    required: true
+runs:
+  using: 'node12'
+  main: 'index.js'
