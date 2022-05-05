@@ -14,14 +14,10 @@ const message = core.getInput("message");
 try {
     const url = "amqps://" + rmqUsername + ":" + rmqPassword + "@" + rmqHost + "/" +rmqVirtualHost
     const json = JSON.stringify(message);
-    const conn = await amqplib.connect(url);
-    const ch = await conn.createChannel();
-    await ch.assertExchange(rmqExchange, 'topic', {durable: true});
-    await ch.publish(rmqExchange, rmqRoutingKey, BUffer.from(json));
-    setTimeout(function(){
-        ch.close();
-        conn.close();
-    }, 500);
+    const conn = amqplib.connect(url);
+    const ch = conn.createChannel();
+    ch.assertExchange(rmqExchange, 'topic', {durable: true});
+    ch.publish(rmqExchange, rmqRoutingKey, BUffer.from(json));
 } catch(error){
     console.log("error: " + error.message);
     core.setFailed(error.message)
