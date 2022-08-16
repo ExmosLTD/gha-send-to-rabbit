@@ -20,7 +20,7 @@ Usage:
    with:
      rmqUsername: {{ secrets.RMQUSERNAME }}
      rmqPassword: {{ secrets.RMQPASSWORD}}
-     rmqHost: cyan-quail.rmq.cloudamqp.com
+     rmqHost: xyz.123.cloudamqp.com
      rmqVirtualHost: 'foo'
      rmqExchange: 'bar'
      rmqRoutingKey: 'T.0.F.*.C.[GitHubRelease]'
