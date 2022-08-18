@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@actions/core": "^1.5.0",
+    "@actions/core": "^1.9.1",
     "@actions/github": "^5.0.0",
     "@cloudamqp/amqp-client": "^2.0.3",
     "amqplib": "^0.8.0"
